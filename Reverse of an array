@@ -1,0 +1,56 @@
+#include <iostream>
+
+using namespace std;
+/*In C++, arrays are passed by reference to functions. This means that when you pass an array to a function, any modifications 
+made to the array inside the function will affect the original array in the calling code.
+
+In the given code, the revarray function takes an array arr and its size n as arguments. Inside the function, the elements of the 
+array are reversed using a while loop and the swap function. The swap function exchanges the values of two elements,
+effectively reversing their positions.
+
+Since the array is passed by reference, any modifications made to the array inside the revarray function will directly affect the 
+original array in the main function. Therefore, after calling the revarray function, the array arr in the main function will have 
+its elements reversed.
+Example:void modifyArray(int arr[], int size) {
+    arr[0] = 10;  // Modifying the original array
+}
+
+int main() {
+    int arr[] = {1, 2, 3};
+    modifyArray(arr, 3);
+    // arr[0] is now 10, as modified by the function
+    return 0;
+}
+*/
+void revarray(int arr[], int n)
+{
+  int low=0,high=n-1;
+  while(low<high)
+  {
+      swap(arr[low],arr[high]);
+      low++;
+      high--;
+  }
+}
+
+int main()
+{
+    
+    int arr[]={1,2,3,4,5};
+    int n=5;
+    cout<<"Array before reversal:";
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i];
+    }
+    cout<<endl;
+    revarray(arr,n);
+    cout<<"Array after reversal:";
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i];
+    }
+    
+    
+    
+}
